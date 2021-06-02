@@ -1,3 +1,8 @@
+/*
+Author :Mhmd Aly
+LCD DIRVER 16*2 for Atmega32
+Data:30/5/2021 V1
+*/
 #include "STD_TYPES.h"
 #include "DIO_Interface.h"
 #include "LCD_INTERFACE.h"
@@ -5,22 +10,13 @@
 #include <avr/delay.h>
 #include <string.h>
 #include <stdio.h>
-/*
-static u8 data_DataPort = PORT_C;
-static u8 data_RSpin = PORT_C;
-static u8 data_RWpin = PORT_C;
-*/
+
 static volatile u8 LCD_GlobalMode = LCD_8BIT_LEN;
 
-#ifdef LCD_16_2
-/*static u8 GLOPAL_U8Row = 2;
-static u8 GLOPAL_U8Col = 16;*/
+
 static u8 Line = 0;
 static u8 Row  = 0;
-#elif LCD_40_2
-static u8 GLOPAL_U8Row = 2;
-static u8 GLOPAL_U8Col = 40;
-#endif
+
 
 static void LCD_VoidsendData(u8 U8_Data){
 	/*RS = 1 */
